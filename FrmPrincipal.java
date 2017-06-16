@@ -15,16 +15,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     public FrmPrincipal() {
        initComponents();
-       //FrmLogin tela = new FrmLogin();
-       //painel_principal.add(tela);
-       //tela.setVisible(true);
+       
     }
     
-    @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         painel_principal = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu_func = new javax.swing.JMenu();
         menu_veiculos = new javax.swing.JMenuItem();
@@ -32,7 +31,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menu_seguros = new javax.swing.JMenuItem();
         menu_Registros = new javax.swing.JMenuItem();
         menu_sair = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        menu_lista_registros_ = new javax.swing.JMenu();
         menu_lista_veiculo_ = new javax.swing.JMenuItem();
         menu_lista_cliente_ = new javax.swing.JMenuItem();
         menu_lista_seguro_ = new javax.swing.JMenuItem();
@@ -43,15 +42,25 @@ public class FrmPrincipal extends javax.swing.JFrame {
         painel_principal.setBackground(java.awt.SystemColor.activeCaption);
         painel_principal.setForeground(java.awt.SystemColor.activeCaption);
 
+        jLabel1.setText("jLabel1");
+
+        painel_principal.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout painel_principalLayout = new javax.swing.GroupLayout(painel_principal);
         painel_principal.setLayout(painel_principalLayout);
         painel_principalLayout.setHorizontalGroup(
             painel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1233, Short.MAX_VALUE)
+            .addGroup(painel_principalLayout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(825, Short.MAX_VALUE))
         );
         painel_principalLayout.setVerticalGroup(
             painel_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 635, Short.MAX_VALUE)
+            .addGroup(painel_principalLayout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(335, Short.MAX_VALUE))
         );
 
         jMenu_func.setText("Cadastros");
@@ -98,10 +107,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu_func);
 
-        jMenu1.setText("Relatórios");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+        menu_lista_registros_.setText("Relatórios");
+        menu_lista_registros_.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
+                menu_lista_registros_ActionPerformed(evt);
             }
         });
 
@@ -111,7 +120,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 menu_lista_veiculo_ActionPerformed(evt);
             }
         });
-        jMenu1.add(menu_lista_veiculo_);
+        menu_lista_registros_.add(menu_lista_veiculo_);
 
         menu_lista_cliente_.setText("Lista de Clientes");
         menu_lista_cliente_.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +128,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 menu_lista_cliente_ActionPerformed(evt);
             }
         });
-        jMenu1.add(menu_lista_cliente_);
+        menu_lista_registros_.add(menu_lista_cliente_);
 
         menu_lista_seguro_.setText("Lista de Seguros");
         menu_lista_seguro_.addActionListener(new java.awt.event.ActionListener() {
@@ -127,9 +136,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 menu_lista_seguro_ActionPerformed(evt);
             }
         });
-        jMenu1.add(menu_lista_seguro_);
+        menu_lista_registros_.add(menu_lista_seguro_);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menu_lista_registros_);
 
         setJMenuBar(jMenuBar1);
 
@@ -184,42 +193,31 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_RegistrosActionPerformed
 
     private void menu_lista_veiculo_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_lista_veiculo_ActionPerformed
-         
-        String src = "veiculos.jasper";
         
         JasperPrint jp = null;
-        
         try {
-            jp = JasperFillManager.fillReport(src, null, con);
+            jp = JasperFillManager.fillReport("C:\\Users\\Brauner\\Documents\\NetBeansProjects\\Seguradora\\src\\Relatórios\\veiculos.jasper",null, con);
         } catch (JRException ex) {
             System.err.println("Erro ao abrir relatório."+ex);
         }
-        
         JasperViewer view = new JasperViewer(jp,false);
-        
         view.setVisible(true);
         view.setTitle("Lista de Veículos - Kit Kar");
-        
     }//GEN-LAST:event_menu_lista_veiculo_ActionPerformed
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        
-    }//GEN-LAST:event_jMenu1ActionPerformed
+    private void menu_lista_registros_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_lista_registros_ActionPerformed
+       
+    }//GEN-LAST:event_menu_lista_registros_ActionPerformed
 
     private void menu_lista_cliente_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_lista_cliente_ActionPerformed
            
-        String src = "clientes.jasper";
-        
         JasperPrint jp = null;
-        
         try {
-            jp = JasperFillManager.fillReport(src, null, con);
+            jp = JasperFillManager.fillReport("C:\\Users\\Brauner\\Documents\\NetBeansProjects\\Seguradora\\src\\Relatórios\\clientes.jasper", null, con);
         } catch (JRException ex) {
             System.err.println("Erro ao abrir relatório."+ex);
         }
-        
         JasperViewer view = new JasperViewer(jp,false);
-        
         view.setVisible(true);
         view.setTitle("Lista de Clientes - Kit Kar");
     }//GEN-LAST:event_menu_lista_cliente_ActionPerformed
@@ -227,22 +225,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
     
     
     private void menu_lista_seguro_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_lista_seguro_ActionPerformed
-               
-        String src = "seguros.jasper";
         
         JasperPrint jp = null;
-        
         try {
-            jp = JasperFillManager.fillReport(src, null, con);
+            jp = JasperFillManager.fillReport("C:\\Users\\Brauner\\Documents\\NetBeansProjects\\Seguradora\\src\\Relatórios\\seguros.jasper", null, con);
         } catch (JRException ex) {
-            System.err.println("Erro ao abrir relatório."+ex);
+            System.err.println("Erro no relatório."+ex);
         }
-        
         JasperViewer view = new JasperViewer(jp,false);
-        
         view.setVisible(true);
-        view.setTitle("Lista de Seguros - Kit Kar");
-        
+        view.setTitle("Lista de Seguros - Kit Kar");       
     }//GEN-LAST:event_menu_lista_seguro_ActionPerformed
 
     /**
@@ -259,12 +251,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenu_func;
     private javax.swing.JMenuItem menu_Registros;
     private javax.swing.JMenuItem menu_clientes;
     private javax.swing.JMenuItem menu_lista_cliente_;
+    private javax.swing.JMenu menu_lista_registros_;
     private javax.swing.JMenuItem menu_lista_seguro_;
     private javax.swing.JMenuItem menu_lista_veiculo_;
     private javax.swing.JMenuItem menu_sair;
